@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+.grid-container {
+  width: 50%;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: 50px, 50px 50px;
+  grid-gap: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
