@@ -27,6 +27,14 @@
                 {
                     "number": "seven",
                     "digit": 7
+                },
+                {
+                    "number": "eight",
+                    "digit": 8
+                },
+                {
+                    "number": "nine",
+                    "digit": 9
                 }
             ]
 }

@@ -11,9 +11,19 @@
   width: 50%;
   display: grid;
   justify-content: center;
-  margin: auto;
-  grid-template-columns: 50px 50px 50px;
+  margin: auto;  
   grid-template-columns: 50px, 50px 50px;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px;
+  grid-gap: 10px;
+}
+
+.numgrid-container {
+  width: 50%;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  grid-template-columns: 60px 60px 60px 60px;  
   grid-gap: 10px;
 }
 

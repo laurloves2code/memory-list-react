@@ -16,9 +16,10 @@ class Grid extends Component {
     displayNumbers = () => {
         const numbersItem = data.numbergrid;
         console.log(numbersItem);  
-        this.setState({block1: numbersItem[0].number});
-        this.setState({block2: numbersItem[1].number});
-        this.setState({block3: numbersItem[2].number});      
+        this.setState({block1: numbersItem[0].digit});
+        this.setState({block2: numbersItem[1].digit});
+        this.setState({block3: numbersItem[2].digit});
+        this.setState({block4: numbersItem[3].digit});      
     }
 
     render () {
@@ -26,15 +27,15 @@ class Grid extends Component {
             <div>
                 <h1>Number Grid</h1>
                 <div className="grid-container">
-                    <div className="grid-item">{this.state.block1}</div>
-                    <div className="grid-item">{this.state.block2}</div>
-                    <div className="grid-item">{this.state.block3}</div>
-                    <div className="grid-item">4</div>
-                    <div className="grid-item">5</div>
-                    <div className="grid-item">6</div>
-                    <div className="grid-item">7</div>
-                    <div className="grid-item">8</div>
-                    <div className="grid-item">9</div>
+                    <button className="grid-item">{this.state.block1}</button>
+                    <button className="grid-item">{this.state.block2}</button>
+                    <button className="grid-item">{this.state.block3}</button>
+                    <button className="grid-item">{this.state.block4}</button>
+                    <button className="grid-item">5</button>
+                    <button className="grid-item">6</button>
+                    <button className="grid-item">7</button>
+                    <button className="grid-item">8</button>
+                    <button className="grid-item">9</button>                    
                 </div>     
             </div>
         );
