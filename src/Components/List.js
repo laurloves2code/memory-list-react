@@ -3,44 +3,43 @@ import data from './numberarray.json';
 
 class List extends Component {
     
-    state = {
-        block1: '',
-        block2: '',
-        block3: '',
-        block4: ''
-    };
-    
+    constructor () {
+        super();
+
+        this.state = {            
+            numbersList: ''
+        };
+
+        this.shuffleNumbers=this.shuffleNumbers.bind(this);
+
+    }
+        
     componentDidMount() {        
         this.shuffleNumbers();
     }
     
-    shuffleNumbers = () => {
+    shuffleNumbers() {
         const numberShuffle = data.numbergrid;
-        let i = numberShuffle.length;
-        let indexNum = Math.floor(Math.random() * i);          
-        console.log('This is what I want added to the new randomized array: ' + numberShuffle[indexNum].number);
+        let n = numberShuffle.length;
+        let indexNum = Math.floor(Math.random() * n);     
+        let numDisplayArr = [];
 
-        // to do: create a loop to generate number shuffle
+        for (let i = 1; i < 5; i++) {    
+            indexNum = Math.floor(Math.random() * n);
+            if (numDisplayArr === '') {                 
+                numDisplayArr = [numberShuffle[indexNum].number];            
+            } else {               
+                numDisplayArr = [...numDisplayArr, numberShuffle[indexNum].number]
+            };
 
-        let newNumArray = [];
-        newNumArray.push(numberShuffle[indexNum].number);
-        indexNum = Math.floor(Math.random() * i);          
-        console.log('This is what I want added to the new randomized array: ' + numberShuffle[indexNum].number);
-        newNumArray.push(numberShuffle[indexNum].number);
-        indexNum = Math.floor(Math.random() * i);          
-        console.log('This is what I want added to the new randomized array: ' + numberShuffle[indexNum].number);
-        newNumArray.push(numberShuffle[indexNum].number);
-        indexNum = Math.floor(Math.random() * i);          
-        console.log('This is what I want added to the new randomized array: ' + numberShuffle[indexNum].number); 
-        newNumArray.push(numberShuffle[indexNum].number);    
-        console.log('new numbers list array: ' + newNumArray);    
-        
-        this.setState({block1: newNumArray[0]});
-        this.setState({block2: newNumArray[1]});
-        this.setState({block3: newNumArray[2]});
-        this.setState({block4: newNumArray[3]});
+        console.log(numDisplayArr);
+        this.setState({numbersList: numDisplayArr});     
+            
+        }                   
         
     }
+
+    //map array numDisplayArr to render sequence
 
 
     render () {
@@ -48,10 +47,7 @@ class List extends Component {
             <div>
                 <h1>Memorize the Sequence</h1>
                 <div className="numgrid-container">
-                    <div className="grid-item">{this.state.block1}</div>
-                    <div className="grid-item">{this.state.block2}</div>
-                    <div className="grid-item">{this.state.block3}</div>
-                    <div className="grid-item">{this.state.block4}</div>                    
+                    <div className="grid-item"></div>                                        
                 </div>     
             </div>
         );
