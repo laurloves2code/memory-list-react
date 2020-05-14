@@ -7,10 +7,13 @@ class List extends Component {
         super();
 
         this.state = {            
-            numbersList: ''
+            numbersList1: '',
+            numbersList2: '',
+            numbersList3: '',
+            numbersList4: ''
         };
 
-        this.shuffleNumbers=this.shuffleNumbers.bind(this);
+        this.shuffleNumbers=this.shuffleNumbers.bind(this);        
 
     }
         
@@ -22,7 +25,7 @@ class List extends Component {
         const numberShuffle = data.numbergrid;
         let n = numberShuffle.length;
         let indexNum = Math.floor(Math.random() * n);     
-        let numDisplayArr = [];
+        let numDisplayArr = '';
 
         for (let i = 1; i < 5; i++) {    
             indexNum = Math.floor(Math.random() * n);
@@ -33,21 +36,29 @@ class List extends Component {
             };
 
         console.log(numDisplayArr);
-        this.setState({numbersList: numDisplayArr});     
+        this.setState({numbersList1: numDisplayArr[0]});
+        this.setState({numbersList2: numDisplayArr[1]});
+        this.setState({numbersList3: numDisplayArr[2]});
+        this.setState({numbersList4: numDisplayArr[3]});     
             
         }                   
         
     }
 
-    //map array numDisplayArr to render sequence
-
-
     render () {
+
+        
+
         return (
             <div>
                 <h1>Memorize the Sequence</h1>
                 <div className="numgrid-container">
-                    <div className="grid-item"></div>                                        
+
+                    <div className="grid-item" >{this.state.numbersList1}</div>
+                    <div className="grid-item" >{this.state.numbersList2}</div>
+                    <div className="grid-item" >{this.state.numbersList3}</div>
+                    <div className="grid-item" >{this.state.numbersList4}</div>
+
                 </div>     
             </div>
         );
