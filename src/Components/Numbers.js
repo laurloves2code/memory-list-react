@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import data from './numberarray.json';
 
+let numberShuffle;
+let numDisplayArr;
+let answerArr;
+
 class Numbers extends Component {
     
     constructor (props) {
@@ -11,25 +15,31 @@ class Numbers extends Component {
             numbersList2: '',
             numbersList3: '',
             numbersList4: '',
-            userMemoryList: ''
+            userMemoryList: '',
+            Solution: '',
+            Grid: <div><h1>Get Ready :)</h1></div>
         };
 
         
         this.shuffleNumbers=this.shuffleNumbers.bind(this);  
         this.userMemory=this.userMemory.bind(this);      
         this.checkSolution=this.checkSolution.bind(this);
+       
 
     }
         
     componentDidMount() {        
         this.shuffleNumbers();
     }
+
+    //--------------------------------------------
     
     shuffleNumbers() {
-        const numberShuffle = data.numbergrid;
+        
+        numberShuffle = data.numbergrid;        
         let n = numberShuffle.length;
         let indexNum = Math.floor(Math.random() * n);     
-        let numDisplayArr = '';
+        numDisplayArr = '';
 
         for (let i = 1; i < 5; i++) {    
             indexNum = Math.floor(Math.random() * n);
@@ -37,37 +47,123 @@ class Numbers extends Component {
                 numDisplayArr = [numberShuffle[indexNum].number];            
             } else {               
                 numDisplayArr = [...numDisplayArr, numberShuffle[indexNum].number]
-            };
+            };         
+                   
+        }   
 
-        console.log(numDisplayArr);
+        console.log(numDisplayArr);  
+        this.setState({Solution: ''});      
         this.setState({numbersList1: numDisplayArr[0]});
         this.setState({numbersList2: numDisplayArr[1]});
         this.setState({numbersList3: numDisplayArr[2]});
-        this.setState({numbersList4: numDisplayArr[3]});     
-            
-        }         
+        this.setState({numbersList4: numDisplayArr[3]});  
+        
+        setTimeout(() => {
+            this.setState({numbersList1: '*'});
+            this.setState({numbersList2: '*'});
+            this.setState({numbersList3: '*'});
+            this.setState({numbersList4: '*'});
+            this.setState({Grid: 
+                
+                <div className="grid-container">                
+                <button className="grid-item" onClick={this.userMemory}>1</button>
+                <button className="grid-item" onClick={this.userMemory}>2</button>
+                <button className="grid-item" onClick={this.userMemory}>3</button>
+                <button className="grid-item" onClick={this.userMemory}>4</button>
+                <button className="grid-item" onClick={this.userMemory}>5</button>
+                <button className="grid-item" onClick={this.userMemory}>6</button>
+                <button className="grid-item" onClick={this.userMemory}>7</button>
+                <button className="grid-item" onClick={this.userMemory}>8</button>
+                <button className="grid-item" onClick={this.userMemory}>9</button>                    
+            </div>   });
+        }, 2000)       
                
     }
 
+    //--------------------------------------------
+
+    setSelection() {
+        this.setState({numbersList2: this.state.userMemoryList[1]});
+        this.setState({numbersList3: this.state.userMemoryList[2]});
+        this.setState({numbersList4: this.state.userMemoryList[3]});
+    }
+
+    //--------------------------------------------
+
     userMemory(event) {
-        let u = event.target.innerHTML;
-        //this.setState({userMemoryList: u});
-        if (this.state.userMemoryList === '') {
-            this.setState({ userMemoryList: [u]}, () => {console.log(this.state.userMemoryList)});            
+        let numButton = event.target.innerHTML;        
+        if (this.state.userMemoryList.length === 4) {
+            this.setState({Solution: 'All Numbers Selected. Check Solution'});
         } else {
-            this.setState({userMemoryList: [...this.state.userMemoryList, u]}, () => {console.log(this.state.userMemoryList)});            
-        };         
+            if (this.state.userMemoryList === '') {
+                this.setState({ userMemoryList: [numButton]}, () => {this.setState({numbersList1: this.state.userMemoryList[0]})});                            
+            } else {
+                this.setState({userMemoryList: [...this.state.userMemoryList, numButton]}, () => {this.setSelection()});            
+            }; 
+        }  
+               
+        
        
     }
 
-    checkSolution() {        
-        this.setState({userMemoryList: ''});    
-        this.shuffleNumbers();    
+    //--------------------------------------------
+
+    checkSolution() {     
+            
+        answerArr = '';
+        
+        for (let i = 0; i < 6; i++ ) {
+
+            if(numDisplayArr[i] === 'one') {
+                answerArr = [...answerArr, '1'];                
+            } else if(numDisplayArr[i] === 'two') {
+                answerArr = [...answerArr, '2'];                
+            } else if(numDisplayArr[i] === 'three') {
+                answerArr = [...answerArr, '3'];                
+            } else if(numDisplayArr[i] === 'four') {
+                answerArr = [...answerArr, '4'];                
+            } else if(numDisplayArr[i] === 'five') {
+                answerArr = [...answerArr, '5'];                
+            } else if(numDisplayArr[i] === 'six') {
+                answerArr = [...answerArr, '6'];                
+            } else if(numDisplayArr[i] === 'seven') {
+                answerArr = [...answerArr, '7'];                
+            } else if(numDisplayArr[i] === 'eight') {
+                answerArr = [...answerArr, '8'];                
+            } else if(numDisplayArr[i] === 'nine') {
+                answerArr = [...answerArr, '9'];                
+            } else {
+                console.log('done: ' + answerArr);
+            }
+
+            if (
+                answerArr[0] === this.state.userMemoryList[0] &&
+                answerArr[1] === this.state.userMemoryList[1] &&
+                answerArr[2] === this.state.userMemoryList[2] &&
+                answerArr[3] === this.state.userMemoryList[3]                
+                ) {
+                console.log('Great!');
+                this.setState({Solution: 'Great!'});
+            } else {
+                console.log('Try Again');
+                this.setState({Solution: 'Try Again'});
+            }
+           
+        }
+        
+        console.log('User Input: ' + this.state.userMemoryList);
+        
+        setTimeout(() => {
+            this.setState({userMemoryList: ''});
+            this.setState({Grid: <div><h1>Get Ready :)</h1></div>});
+            this.shuffleNumbers();
+        }, 2000)
+            
     }
 
-    render () {
+    //--------------------------------------------
 
-        
+    render () {       
 
         return (
             <div>
@@ -80,19 +176,12 @@ class Numbers extends Component {
                     <div className="grid-item" >{this.state.numbersList4}</div>
 
                 </div> 
-                <h1>Number Grid</h1>
-                <div className="grid-container">
-                    <button className="grid-item" onClick={this.userMemory}>1</button>
-                    <button className="grid-item" onClick={this.userMemory}>2</button>
-                    <button className="grid-item" onClick={this.userMemory}>3</button>
-                    <button className="grid-item" onClick={this.userMemory}>4</button>
-                    <button className="grid-item" onClick={this.userMemory}>5</button>
-                    <button className="grid-item" onClick={this.userMemory}>6</button>
-                    <button className="grid-item" onClick={this.userMemory}>7</button>
-                    <button className="grid-item" onClick={this.userMemory}>8</button>
-                    <button className="grid-item" onClick={this.userMemory}>9</button>                    
-                </div> 
+                <h1>Enter Your Numbers</h1>
+                
+                {this.state.Grid}                
+                
                 <p><button onClick={this.checkSolution}>Check Numbers</button></p>   
+                <h1>{this.state.Solution}</h1>
             </div>
             
         );
