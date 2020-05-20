@@ -66,15 +66,15 @@ class Numbers extends Component {
             this.setState({Grid: 
                 
                 <div className="grid-container">                
-                <button className="grid-item" onClick={this.userMemory}>1</button>
-                <button className="grid-item" onClick={this.userMemory}>2</button>
-                <button className="grid-item" onClick={this.userMemory}>3</button>
-                <button className="grid-item" onClick={this.userMemory}>4</button>
-                <button className="grid-item" onClick={this.userMemory}>5</button>
-                <button className="grid-item" onClick={this.userMemory}>6</button>
-                <button className="grid-item" onClick={this.userMemory}>7</button>
-                <button className="grid-item" onClick={this.userMemory}>8</button>
-                <button className="grid-item" onClick={this.userMemory}>9</button>                    
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>1</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>2</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>3</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>4</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>5</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>6</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>7</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>8</button>
+                <button className="grid-item btn btn-info" onClick={this.userMemory}>9</button>                    
             </div>   });
         }, 2000)       
                
@@ -180,7 +180,7 @@ class Numbers extends Component {
                 
                 {this.state.Grid}                
                 
-                <p><button onClick={this.checkSolution}>Check Numbers</button></p>   
+                <p><button className="btn btn-warning" onClick={this.checkSolution}>Check Numbers</button></p>   
                 <h1>{this.state.Solution}</h1>
             </div>
             
