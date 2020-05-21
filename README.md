@@ -5,17 +5,25 @@ A numbers memory game to improve focus, cognitive skills, concentration and brai
 ----- UX/UI
 
 -A set of 4 written numbers appears for the user to memorize.
+
 -After 2 secconds the numbers are removed and a number button grid appears.
+
 -Recall and select the numbers in the correct order.
+
 -If numbers are correct - 'Great!'
+
 -If entered numbers are incorrect - 'Try Again'
 
 ------- Technical Summary
 
 ReactJS - JavaScript
+
 HTML
+
 CSS
+
 Bootstrap
+
 Responsive UI
 
 ------- Requirements and Steps to View Final App
