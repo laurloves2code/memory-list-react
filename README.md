@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MEMEORY GAME APP
 
-## Available Scripts
+A numbers memory game to improve focus, cognitive skills, concentration and brain recall.
 
-In the project directory, you can run:
+----- UX/UI
 
-### `npm start`
+-A set of 4 written numbers appears for the user to memorize.
+-After 2 secconds the numbers are removed and a number button grid appears.
+-Recall and select the numbers in the correct order.
+-If numbers are correct - 'Great!'
+-If entered numbers are incorrect - 'Try Again'
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+------- Technical Summary
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+ReactJS - JavaScript
+HTML
+CSS
+Bootstrap
+Responsive UI
 
-### `npm test`
+------- Requirements and Steps to View Final App
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Visit Repository on GitHub - https://github.com/laurloves2code/memory-list-react - Download Zip and Extract project folder to computer
 
-### `npm run build`
+Open Visual Studio Code - install if needed: https://code.visualstudio.com/download
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install node.js - https://nodejs.org/dist/v12.16.3/node-v12.16.3-x64.msi
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Open VS Code, Open downloaded project folder and open new terminal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Type Command: npm install
 
-### `npm run eject`
+This app used versions: npm 6.13.4 and node.js 12.16.1
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Check installation: commands: node --version and npm -v
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run React App using command: npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This will open the project in the browser using localhost
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Thank you for viewing!
