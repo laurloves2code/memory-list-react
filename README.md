@@ -6,7 +6,7 @@ A numbers memory game to improve focus, cognitive skills, concentration and brai
 
 -A set of 4 written numbers appears for the user to memorize.
 
--After 2 secconds the numbers are removed and a number button grid appears.
+-After 2 seconds the numbers are removed and a number button grid appears.
 
 -Recall and select the numbers in the correct order.
 
